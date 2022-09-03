@@ -25,9 +25,9 @@ TODO:
 */
 
 const getVariant = (button: string) => {
-    const active = window.location.pathname
+    const active = window.location.pathname.toLowerCase()
 
-    if (active.includes(button)) {
+    if (active.includes(button.toLowerCase())) {
         return "outlined"
     } else {
         return "text"
@@ -42,7 +42,7 @@ export default function Header(){
                 className="headerButton"
                 size="large"
                 variant={getVariant(title)}
-                href={`/${title.toLowerCase()}`}
+                href={`/${title}`}
             >
                 {title}
             </Button>

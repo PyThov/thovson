@@ -28,10 +28,13 @@
 }
 
 .footer{
+    display: flex;
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100vw;
     height: 50px;
     background-color: #1a1a1a;
+    justify-content: center;
+    align-items: center;
 }
