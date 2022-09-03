@@ -2,19 +2,8 @@
     padding: 20px;
 }
 
-.card:hover{
-    background-color: #BDDEF3;
-}
-
 .card{
-    background-color: #EBEFEF;
     height: 200px;
     overflow-wrap: break-word;
     white-space: pre-wrap;
-}
-
-.cardTitle{
-    font-size: 24;
-    font-weight: "600";
-    color: "#529CCC";
 }

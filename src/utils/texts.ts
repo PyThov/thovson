@@ -5,11 +5,18 @@ interface IHomeCards {
 
 
 const GOALS = 
-`goals summary`
+`- Strong software development career
+- Grow a business building websites
+- Help others learn about basic finance
+- Continue learning in development and economics`
+
+const RESUME =
+`- Fullstack Cloud Software Engineer II
+- Bachelor of Science in Computer Science`
 
 export const HOME_CARDS: IHomeCards = {
     "goals": GOALS,
-    "resume": "resume summary",
+    "resume": RESUME,
     "projects": "projects summary",
     "about": "about summary",
 }

@@ -7,11 +7,12 @@ import Goals from "./routes/Goals";
 import About from "./routes/About";
 import Projects from "./routes/Projects";
 import Resume from "./routes/Resume";
-
+import { createTheme, ThemeProvider } from "@mui/material";
+import { theme } from "./theme";
 
 function App() {
   return(
-    <div>
+    <ThemeProvider theme={createTheme(theme)}>
       <Header />
       <Footer />
       <Routes>
@@ -21,7 +22,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/resume" element={<Resume />} />
       </Routes>
-    </div>
+    </ThemeProvider>
   )
 }
 

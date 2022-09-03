@@ -1,6 +1,7 @@
 import React from "react"
-import { Button } from "@mui/material"
+import { Button, Typography } from "@mui/material"
 import "./components.css"
+import { theme } from "../theme"
 
 const HeaderSeparator = () => {
     return ( 
@@ -8,7 +9,7 @@ const HeaderSeparator = () => {
             style={{
                 borderLeft: "solid",
                 borderWidth: "2px",
-                borderColor: "whitesmoke",
+                borderColor: theme.palette.primary.contrastText,
                 height: "2em",
                 marginLeft: 20,
                 marginRight: 20,
@@ -40,6 +41,7 @@ export default function Header(){
         return (
             <Button
                 className="headerButton"
+                color="primary"
                 size="large"
                 variant={getVariant(title)}
                 href={`/${title}`}
@@ -50,10 +52,10 @@ export default function Header(){
     }
     
     return (
-        <div className="header">
-            <a href="/">
-                <div className="headerTitle">Noah Thovson</div>
-            </a>
+        <div className="header" style={{backgroundColor: theme.palette.secondary.main}}>
+            <Button href="/" sx={{ marginLeft: 5 }} color="secondary" >
+                <Typography fontSize={16} fontWeight={600} color={theme.palette.secondary.contrastText}>Noah Thovson</Typography>
+            </Button>
             <HeaderSeparator />
             {generateButton("goals")}
             {generateButton("resume")}
