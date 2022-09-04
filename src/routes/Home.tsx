@@ -3,17 +3,17 @@
  - Extremely brief picture of who I am as a whole, with pictures :)
 */
 
-import { Box, Card, CardContent, Grid, Typography, useTheme } from "@mui/material";
-import { getCardText } from "../utils/utils";
+import { Box, Card, CardContent, Grid, Typography, } from "@mui/material";
+import { HOME_CARDS } from "../utils/texts";
 import "./home.css"
 
 const spacing = 10
 
 export default function Home(){
-    const theme = useTheme()
-
     // Creates a card component based on passed in title
     const getCardContent = (title: string) => {
+        const items = HOME_CARDS[title.toLowerCase()]
+
         return (
             <a href={`/${title}`} style={{textDecoration: "none"}}> 
                 <Card className="card" color="secondary" sx={{":hover": {backgroundColor: "#b4ffff"}}}>
@@ -25,7 +25,17 @@ export default function Home(){
                             {title}:
                         </Typography>
                         <Typography>
-                            {getCardText(title)}
+                            <ul>
+                                {
+                                    items.map((item) => {
+                                        return (
+                                            <li>
+                                                {item}
+                                            </li>
+                                        )
+                                    })
+                                }
+                            </ul>
                         </Typography>
                     </CardContent>
                 </Card>
