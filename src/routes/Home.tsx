@@ -15,7 +15,7 @@ export default function Home(){
         const items = HOME_CARDS[title.toLowerCase()]
 
         return (
-            <a href={`/${title}`} style={{textDecoration: "none"}}> 
+            <a href={`/${title.toLowerCase()}`} style={{textDecoration: "none"}}> 
                 <Card className="card" color="secondary" sx={{":hover": {backgroundColor: "#b4ffff"}}}>
                     <CardContent color="primary">
                         <Typography color="primary" sx={{
