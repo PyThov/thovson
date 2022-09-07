@@ -15,11 +15,10 @@ export default function PageContainer({children}: IPageContainer){
         }}>
             <Box sx={{
                 width: "90vw",
-                height: "80vh",
+                minHeight: "75vh",
                 backgroundColor: theme.palette.secondary.light,
                 borderRadius: "10px",
-                paddingTop: "20px",
-                paddingLeft: "20px",
+                padding: "20px",
                 marginBottom: "10px",
                 boxShadow: `5px 5px 10px ${theme.palette.secondary.dark}`,
             }}>

@@ -14,7 +14,6 @@ function App() {
   return(
     <ThemeProvider theme={createTheme(theme)}>
       <Header />
-      <Footer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/goals" element={<Goals />} />
@@ -22,6 +21,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/resume" element={<Resume />} />
       </Routes>
+      <Footer />
     </ThemeProvider>
   )
 }
