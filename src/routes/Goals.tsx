@@ -7,6 +7,7 @@
 import { Typography, useTheme } from "@mui/material";
 import PageContainer from "../components/PageContainer";
 import { GetAccordianItems } from "../components/utils";
+import { GOALS } from "../utils/texts";
 
 export default function Goals(){
     const theme = useTheme()
@@ -28,7 +29,7 @@ export default function Goals(){
                 display: "flex",
                 justifyContent: "center"
             }}>
-                {GetAccordianItems("goals")}
+                {GetAccordianItems(GOALS)}
             </div>
         </PageContainer>
     )

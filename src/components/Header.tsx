@@ -67,7 +67,7 @@ export default function Header(){
             <HeaderSeparator />
             {generateButton("goals")}
             {generateButton("resume")}
-            {generateButton("projects")}
+            {/* {generateButton("projects")} */}
             {generateButton("about")}
         </div>
     )

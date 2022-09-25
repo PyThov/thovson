@@ -4,6 +4,7 @@
 */
 
 import { Box, Card, CardContent, Grid, Typography, } from "@mui/material";
+import { hoverCyan } from "../utils/constants";
 import { HOME_CARDS } from "../utils/texts";
 import "./home.css"
 
@@ -16,7 +17,7 @@ export default function Home(){
 
         return (
             <a href={`/${title.toLowerCase()}`} style={{textDecoration: "none"}}> 
-                <Card className="card" color="secondary" sx={{":hover": {backgroundColor: "#b4ffff"}}}>
+                <Card className="card" color="secondary" sx={hoverCyan}>
                     <CardContent color="primary">
                         <Typography color="primary" sx={{
                             fontSize: 24,
@@ -59,10 +60,10 @@ export default function Home(){
                     {/* SECOND ROW */}
                     <Grid container item spacing={0} justifyContent="space-evenly">
                         <Grid item md={3}>
-                            {getCardContent("Projects")}
+                            {getCardContent("About")}
                         </Grid>
                         <Grid item md={3}>
-                            {getCardContent("About")}
+                            {/* {getCardContent("Projects")} */}
                         </Grid>
                     </Grid>
                 </Grid>
