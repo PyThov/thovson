@@ -10,9 +10,9 @@ export interface IPageDetail {
 export const GOALS: IPageDetail = {
     "Strong fullstack software engineer career": 
         "Maintain a career as a fullstack software engineer while continously learning and applying new technologies.",
-    // "Grow a business building websites": "b",
     "Help others learn about basic finance": "Financial education is lacking in our world. I'd like to help people learn more about money and the economy.",
-    // "Grow a community": "",
+    "Help others learn to code": "Coding is such a wonderful and powerful tool. It's a logistic art form. I'd like to help others learn how to code through Youtube videos, and potentially other forms.",
+    "Freelance Coding": "I enjoy coding a lot. I often desire to keep coding outside of work, but I don't always have a project to work on. To fill this gap and continue my learning, I am considering freelancing."
 }
 
 export const RESUME: IPageDetail = {
@@ -27,8 +27,7 @@ export const PROJECTS: IPageDetail = {
 }
 
 export const ABOUT: IPageDetail = {
-    "Software Engineer": "Enjoying coding since 2016. What started with highschool courses has grown into a fulfilling career." +
-    "I prefer the frontend but I like being a part of an entire project, end-to-end.",
+    "Software Engineer": "Enjoying coding since 2016. What started with highschool courses has grown into a fulfilling career. I prefer the frontend but I like being a part of an entire project, end-to-end.",
     "Gamer": "I started with Roller Coaster Tycoon, now I mostly play League of Legends and Factorio.",
     "Guitar Player": "<Insert Guitar Solo Here> Electric / Acoustic",
 }

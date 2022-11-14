@@ -17,7 +17,7 @@ export default function Home(){
 
         return (
             <a href={`/${title.toLowerCase()}`} style={{textDecoration: "none"}}> 
-                <Card className="card" color="secondary" sx={hoverCyan}>
+                <Card key={"key-"+title} className="card" color="secondary" sx={hoverCyan}>
                     <CardContent color="primary">
                         <Typography color="primary" sx={{
                             fontSize: 24,
@@ -25,18 +25,16 @@ export default function Home(){
                         }}>
                             {title}:
                         </Typography>
-                        <Typography>
-                            <ul>
+                        <Typography sx={{padding: "10px"}}>
                                 {
                                     items.map((item) => {
                                         return (
-                                            <li>
+                                            <li key={"key-"+item}>
                                                 {item}
                                             </li>
                                         )
                                     })
                                 }
-                            </ul>
                         </Typography>
                     </CardContent>
                 </Card>

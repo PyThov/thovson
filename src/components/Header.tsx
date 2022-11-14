@@ -1,6 +1,8 @@
 import React from "react"
-import { Button, Typography, useTheme } from "@mui/material"
+import { Button, IconButton, Tooltip, Typography, useTheme } from "@mui/material"
 import "./components.css"
+import LinkedIn from "@mui/icons-material/LinkedIn";
+import { LINKED_IN_HREF } from "../utils/constants";
 
 /*
 TODO: 
@@ -45,7 +47,10 @@ export default function Header(){
                 variant={getVariant(title)}
                 href={`/${title}`}
                 sx={{
-                    color: theme.palette.primary.light
+                    color: theme.palette.primary.light,
+                    '&:hover': {
+                        backgroundColor: theme.palette.secondary.dark,
+                    }
                 }}
             >
                 {title}
@@ -54,21 +59,41 @@ export default function Header(){
     }
     
     return (
-        <div className="header" style={{backgroundColor: theme.palette.secondary.main}}>
-            <Button href="/" sx={{ marginLeft: 3 }} color="secondary" variant="contained">
-                <Typography 
-                    fontSize={16}
-                    fontWeight={600}
-                    color={theme.palette.secondary.contrastText}
-                    >
-                        Noah Thovson
-                </Typography>
-            </Button>
-            <HeaderSeparator />
-            {generateButton("goals")}
-            {generateButton("resume")}
-            {/* {generateButton("projects")} */}
-            {generateButton("about")}
+        <div className="headerContainer" style={{backgroundColor: theme.palette.secondary.main}}>
+            <div className="header">
+                <Button href="/" sx={{ marginLeft: 3 }} color="secondary" variant="contained">
+                    <Typography 
+                        fontSize={16}
+                        fontWeight={600}
+                        color={theme.palette.secondary.contrastText}
+                        >
+                            Noah Thovson
+                    </Typography>
+                </Button>
+                <HeaderSeparator />
+                {generateButton("goals")}
+                {generateButton("resume")}
+                {/* {generateButton("projects")} */}
+                {generateButton("about")}
+            </div>
+            <div style={{marginRight: "50px", backgroundColor: "inherit"}}>
+                <Tooltip title="Linked In" arrow>
+                    <IconButton
+                        href={LINKED_IN_HREF}
+                        target="_blank"
+                        size="large" 
+                        sx={{
+                            color: "#fff",
+                            "&:hover": {
+                                color: theme.palette.primary.light,
+                                backgroundColor: theme.palette.secondary.dark
+                                }
+                            }}
+                        >
+                        <LinkedIn fontSize="inherit"/>
+                    </IconButton>
+                </Tooltip>
+            </div>
         </div>
     )
 }

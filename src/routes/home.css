@@ -3,7 +3,12 @@
 }
 
 .card{
-    height: 200px;
+    height: 220px;
+    width: 400px;
     overflow-wrap: break-word;
     white-space: pre-wrap;
+}
+
+.card:hover {
+    box-shadow: 10px 10px 1px -1px;
 }
