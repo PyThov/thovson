@@ -36,6 +36,14 @@
   padding-right: 20px;
 }
 
+.headerIcons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-right: 50px;
+  background-color: inherit;
+}
+
 .footer {
   display: flex;
   position: fixed;

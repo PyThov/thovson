@@ -8,7 +8,8 @@ import {
 } from "@mui/material";
 import "./components.css";
 import LinkedIn from "@mui/icons-material/LinkedIn";
-import { LINKED_IN_HREF } from "../utils/constants";
+import Github from "@mui/icons-material/Github";
+import { GITHUB_HREF, LINKED_IN_HREF } from "../utils/constants";
 
 const getVariant = (button: string) => {
   const active = window.location.pathname.toLowerCase();
@@ -22,6 +23,14 @@ const getVariant = (button: string) => {
 
 export default function Header() {
   const theme = useTheme();
+  const iconButtonStyle = {
+    color: "#fff",
+    borderRadius: 1,
+    "&:hover": {
+      color: theme.palette.primary.light,
+      backgroundColor: theme.palette.secondary.dark,
+    },
+  }
 
   const HeaderSeparator = () => {
     return (
@@ -77,19 +86,23 @@ export default function Header() {
         {/* {generateButton("projects")} */}
         {/* {generateButton("about")} */}
       </div>
-      <div style={{ marginRight: "50px", backgroundColor: "inherit" }}>
+      <div className="headerIcons">
+        <Tooltip title="Github" arrow>
+          <IconButton
+            href={GITHUB_HREF}
+            target="_blank"
+            size="large"
+            sx={iconButtonStyle}
+          >
+            <Github fontSize="inherit" />
+          </IconButton>
+        </Tooltip>
         <Tooltip title="Linked In" arrow>
           <IconButton
             href={LINKED_IN_HREF}
             target="_blank"
             size="large"
-            sx={{
-              color: "#fff",
-              "&:hover": {
-                color: theme.palette.primary.light,
-                backgroundColor: theme.palette.secondary.dark,
-              },
-            }}
+            sx={iconButtonStyle}
           >
             <LinkedIn fontSize="inherit" />
           </IconButton>
