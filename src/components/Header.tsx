@@ -4,13 +4,6 @@ import "./components.css"
 import LinkedIn from "@mui/icons-material/LinkedIn";
 import { LINKED_IN_HREF } from "../utils/constants";
 
-/*
-TODO: 
- - Add buttons on header for different pages
-    -  goals, past work experience, accomplishments, social media
- - Add React routes for each page
-*/
-
 const getVariant = (button: string) => {
     const active = window.location.pathname.toLowerCase()
 
@@ -61,20 +54,19 @@ export default function Header(){
     return (
         <div className="headerContainer" style={{backgroundColor: theme.palette.secondary.main}}>
             <div className="header">
-                <Button href="/" sx={{ marginLeft: 3 }} color="secondary" variant="contained">
-                    <Typography 
-                        fontSize={16}
-                        fontWeight={600}
-                        color={theme.palette.secondary.contrastText}
-                        >
-                            Noah Thovson
-                    </Typography>
-                </Button>
+                <Typography 
+                    fontSize={16}
+                    fontWeight={600}
+                    color={theme.palette.secondary.contrastText}
+                    sx={{ marginLeft: 3 }}
+                    >
+                        Noah Thovson
+                </Typography>
                 <HeaderSeparator />
-                {generateButton("goals")}
-                {generateButton("resume")}
+                {/* {generateButton("goals")} */}
+                {/* {generateButton("resume")} */}
                 {/* {generateButton("projects")} */}
-                {generateButton("about")}
+                {/* {generateButton("about")} */}
             </div>
             <div style={{marginRight: "50px", backgroundColor: "inherit"}}>
                 <Tooltip title="Linked In" arrow>

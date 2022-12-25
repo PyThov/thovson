@@ -19,6 +19,10 @@ export const theme = {
             main: "#9e9e9e",
             dark: "#707070",
             contrastText: "#000",
+        },
+        error: {
+            main: "#b8282f",
+            contrastText: "#fff",
         }
     }    
 }

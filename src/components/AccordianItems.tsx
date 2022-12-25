@@ -1,16 +1,15 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material"
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { IPageDetail } from "../utils/texts";
 import "./components.css"
 import { hoverCyan } from "../utils/constants";
 
-
-export const GetAccordianItems = (items: IPageDetail) => {
-    console.log(items)
-
+interface IAccordianItems{
+    items: IPageDetail;
+}
+export const AccordianItems = ({items}: IAccordianItems) => {
     const generateAccordianElement = (item: string, key: Number) => {
-        console.log(key)
         return (
             <Accordion
                 className="accordian"
@@ -20,11 +19,13 @@ export const GetAccordianItems = (items: IPageDetail) => {
                     expandIcon={<ExpandMoreIcon />}
                     sx={{backgroundColor: "whitesmoke", ...hoverCyan}}
                 >
-                    <Typography>{item}</Typography>
+                    <Typography sx={{fontWeight: "600"}}>{item}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        {items[item]}
+                        {typeof items[item] === "object" ? Object.values(items[item]).map((listItem) => {
+                            return <li>{listItem}</li>
+                        }) : items[item]}
                     </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -34,6 +35,7 @@ export const GetAccordianItems = (items: IPageDetail) => {
     return (
         <div>
             {Object.keys(items).map((item, key) => {
+                console.log(Object.values(items[item]))
                 return generateAccordianElement(item, key)
             })}
         </div>
