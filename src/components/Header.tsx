@@ -1,8 +1,5 @@
 import React from "react";
 import {
-  Button,
-  IconButton,
-  Tooltip,
   Typography,
   useTheme,
 } from "@mui/material";
@@ -10,27 +7,10 @@ import "./components.css";
 import LinkedIn from "@mui/icons-material/LinkedIn";
 import Github from "@mui/icons-material/Github";
 import { GITHUB_HREF, LINKED_IN_HREF } from "../utils/constants";
-
-const getVariant = (button: string) => {
-  const active = window.location.pathname.toLowerCase();
-
-  if (active.includes(button.toLowerCase())) {
-    return "outlined";
-  } else {
-    return "text";
-  }
-};
+import { SlideOutIconButton, XSlider } from "./common";
 
 export default function Header() {
   const theme = useTheme();
-  const iconButtonStyle = {
-    color: "#fff",
-    borderRadius: 1,
-    "&:hover": {
-      color: theme.palette.primary.light,
-      backgroundColor: theme.palette.secondary.dark,
-    },
-  }
 
   const HeaderSeparator = () => {
     return (
@@ -44,25 +24,6 @@ export default function Header() {
           marginRight: 20,
         }}
       />
-    );
-  };
-
-  const generateButton = (title: string) => {
-    return (
-      <Button
-        className="headerButton"
-        size="large"
-        variant={getVariant(title)}
-        href={`/${title}`}
-        sx={{
-          color: theme.palette.primary.light,
-          "&:hover": {
-            backgroundColor: theme.palette.secondary.dark,
-          },
-        }}
-      >
-        {title}
-      </Button>
     );
   };
 
@@ -81,32 +42,14 @@ export default function Header() {
           Noah Thovson
         </Typography>
         <HeaderSeparator />
-        {/* {generateButton("goals")} */}
-        {/* {generateButton("resume")} */}
-        {/* {generateButton("projects")} */}
-        {/* {generateButton("about")} */}
       </div>
       <div className="headerIcons">
-        <Tooltip title="Github" arrow>
-          <IconButton
-            href={GITHUB_HREF}
-            target="_blank"
-            size="large"
-            sx={iconButtonStyle}
-          >
-            <Github fontSize="inherit" />
-          </IconButton>
-        </Tooltip>
-        <Tooltip title="Linked In" arrow>
-          <IconButton
-            href={LINKED_IN_HREF}
-            target="_blank"
-            size="large"
-            sx={iconButtonStyle}
-          >
-            <LinkedIn fontSize="inherit" />
-          </IconButton>
-        </Tooltip>
+        <SlideOutIconButton title={"Github"} href={GITHUB_HREF}>
+          <Github fontSize="inherit" />
+        </SlideOutIconButton>
+        <SlideOutIconButton title={"Linked In"} href={LINKED_IN_HREF}>
+          <LinkedIn fontSize="inherit" />
+        </SlideOutIconButton>
       </div>
     </div>
   );

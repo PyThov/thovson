@@ -7,10 +7,12 @@ import { Box, Grid } from "@mui/material";
 import CardModal from "../components/CardModal";
 import { ABOUT, GOALS, RESUME, SKILLS } from "../utils/texts";
 import "./home.css";
+import { XSlider } from "../components/common";
 
 const spacing = 10;
 
 export default function Home() {
+
   return (
     <div className="home">
       <Box>
@@ -35,6 +37,9 @@ export default function Home() {
           </Grid>
         </Grid>
       </Box>
+      <div style={{marginTop: "5vh"}}>
+        <XSlider />
+      </div>
     </div>
   );
 }

@@ -24,4 +24,13 @@ export const theme = {
       contrastText: "#fff",
     },
   },
+  transitions: {
+    duration: {
+      short: 100,
+      standard: 200,
+    },
+  },
+  typography: {
+    fontFamily: ["Roboto"],
+  },
 };
