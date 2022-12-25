@@ -3,9 +3,10 @@
 --
 
 ## Purpose
- - Show: goals, past work experience, accomplishments, social media
- - Try to draw in work for making more websites
- - This website should act as my portfolio
+
+- Show: goals, past work experience, accomplishments, social media
+- Try to draw in work for making more websites
+- This website should act as my portfolio
 
 <!--
 **PyThov/PyThov** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.

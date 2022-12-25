@@ -1,14 +1,14 @@
 .home {
-    padding: 20px;
+  padding: 20px;
 }
 
-.card{
-    height: 220px;
-    width: 400px;
-    overflow-wrap: break-word;
-    white-space: pre-wrap;
+.card {
+  height: 220px;
+  width: 400px;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .card:hover {
-    box-shadow: 10px 10px 1px -1px;
+  box-shadow: 10px 10px 1px -1px;
 }
