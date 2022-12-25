@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "ES6"],
+    "lib": ["DOM", "ESNext"],
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
