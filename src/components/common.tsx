@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { Button, IconButton, styled } from "@mui/material";
+import { Button, Fade, IconButton, styled } from "@mui/material";
 import useTheme from "@mui/material/styles/useTheme";
 import Slide from "@mui/material/Slide";
 import Typography from "@mui/material/Typography";
@@ -74,26 +74,26 @@ export const SlideOutIconButton = ({
         in={showText}
         style={{ zIndex: 1 }}
       >
-        <Link href={href} underline="none">
-          <Typography
-            color={"#fff"}
-            noWrap
-            align="center"
-            sx={{
-              fontSize: 16,
-              fontWeight: "600",
-              position: "fixed",
-              backgroundColor: theme.palette.secondary.dark,
-              borderRadius: "0px 0px 4px 4px",
-              width: "75px",
-              ":hover": {
-                color: theme.palette.primary.light,
-              },
-            }}
-          >
-            {title}
-          </Typography>
-        </Link>
+          <Link href={href} underline="none">
+            <Typography
+              color={"#fff"}
+              noWrap
+              align="center"
+              sx={{
+                fontSize: 16,
+                fontWeight: "600",
+                position: "fixed",
+                backgroundColor: theme.palette.secondary.dark,
+                borderRadius: "0px 0px 4px 4px",
+                width: "75px",
+                ":hover": {
+                  color: theme.palette.primary.light,
+                },
+              }}
+            >
+              {title}
+            </Typography>
+          </Link>
       </Slide>
     </Box>
   );
