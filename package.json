@@ -1,7 +1,7 @@
 {
   "name": "pythov",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -23,6 +23,7 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
+    "prettier": "^2.8.4",
     "typescript": "^4.6.4",
     "vite": "^3.0.7"
   }

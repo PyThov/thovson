@@ -1,6 +1,6 @@
-import { Route, Routes } from "react-router-dom"
-import "./index.css"
-import Home from "./routes/Home"
+import { Route, Routes } from "react-router-dom";
+import "./index.css";
+import Home from "./routes/Home";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Goals from "./routes/Goals";
@@ -9,21 +9,23 @@ import Projects from "./routes/Projects";
 import Resume from "./routes/Resume";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { theme } from "./theme";
+import Thovson from "./routes/Thovson";
 
 function App() {
-  return(
+  return (
     <ThemeProvider theme={createTheme(theme)}>
-      <Header />
+      {/* <Header /> */}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/goals" element={<Goals />} />
+        <Route path="/" element={<Thovson />} />
+        {/* <Route path="/" element={<Home />} /> */}
+        {/* <Route path="/goals" element={<Goals />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/resume" element={<Resume />} />
+        <Route path="/resume" element={<Resume />} /> */}
       </Routes>
       <Footer />
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;
