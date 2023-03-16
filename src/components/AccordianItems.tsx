@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import {
   Accordion,
   AccordionDetails,
@@ -10,21 +10,27 @@ import { IPageDetail } from "../utils/texts";
 import "./components.css";
 import { hoverCyan } from "../utils/constants";
 
-export const GetAccordianItems = (items: IPageDetail) => {
-  console.log(items);
-
+interface IAccordianItems {
+  items: IPageDetail;
+}
+export const AccordianItems = ({ items }: IAccordianItems) => {
   const generateAccordianElement = (item: string, key: Number) => {
-    console.log(key);
     return (
       <Accordion className="accordian" key={`accordian-${key}`}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           sx={{ backgroundColor: "whitesmoke", ...hoverCyan }}
         >
-          <Typography>{item}</Typography>
+          <Typography sx={{ fontWeight: "600" }}>{item}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>{items[item]}</Typography>
+          <Typography>
+            {typeof items[item] === "object"
+              ? Object.values(items[item]).map((listItem, i) => {
+                  return <li key={i}>{listItem}</li>;
+                })
+              : items[item]}
+          </Typography>
         </AccordionDetails>
       </Accordion>
     );
