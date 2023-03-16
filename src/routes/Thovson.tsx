@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid, Paper, Slide, Typography, useTheme } from "@mui/material";
+import { Box, Grid, Paper, Slide, Typography } from "@mui/material";
 import "./home.css";
 
 export default function Thovson() {
@@ -13,28 +13,6 @@ export default function Thovson() {
     const containerRef = React.useRef(null);
 
     return (
-      // <Box  onMouseOver={() => setShow(false)} onMouseOut={() => setShow(true)} sx={{
-      //     height: "100%",
-      //     textAlign: "center",
-      //     justifyContent: "center",
-      //     alignItems: "center",
-      //     position: "relative"
-      // }}>
-      //     <Box position="absolute" top={0} left={0} right={0} bottom={0} zIndex={0}>
-      //         <Paper elevation={0}>
-      //             Details
-      //         </Paper>
-      //     </Box>
-      //     <Box>
-      //         <Slide direction="down" in={show} mountOnEnter unmountOnExit>
-      //             <Box zIndex={4} width="100%" height="100%" sx={{backgroundColor: bgColor}}>
-      //                 <Paper elevation={4} sx={{height: "100%", backgroundColor: bgColor, borderRadius: 0, zIndex: 4}}>
-      //                     {children}
-      //                 </Paper>
-      //             </Box>
-      //         </Slide>
-      //     </Box>
-      // </Box>
       <Box
         position="relative"
         ref={containerRef}
