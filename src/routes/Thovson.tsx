@@ -65,14 +65,12 @@ export default function Thovson() {
       sx={{
         width: "100vw",
         height: "95vh",
+        backgroundColor: "primary.light",
       }}
     >
       <Grid
         item
         xs={4}
-        sx={{
-          backgroundColor: "primary.dark",
-        }}
       >
         <SlidePanel bgColor="neutral.light" title="SKILLS">
           <Box>asdf</Box>
@@ -81,9 +79,6 @@ export default function Thovson() {
       <Grid
         item
         xs={4}
-        sx={{
-          backgroundColor: "primary.main",
-        }}
       >
         <SlidePanel bgColor="neutral.main" title="EXPERIENCE">
           <div>Detail</div>
@@ -92,9 +87,6 @@ export default function Thovson() {
       <Grid
         item
         xs={4}
-        sx={{
-          backgroundColor: "primary.light",
-        }}
       >
         <SlidePanel bgColor="neutral.dark" title="PROJECTS">
           <div>Detail</div>

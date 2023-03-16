@@ -1,6 +1,21 @@
-export const theme = {
+import { createTheme } from "@mui/material";
+
+// Copied from: https://mui.com/material-ui/customization/palette/#adding-new-colors
+// Addition required for Typescript
+declare module '@mui/material/styles' {
+  interface Palette {
+    neutral: Palette['primary'];
+  }
+
+  // allow configuration using `createTheme`
+  interface PaletteOptions {
+    neutral?: PaletteOptions['primary'];
+  }
+}
+
+export const theme = createTheme({
   typography: {
-    fontFamily: ["Roboto"],
+    fontFamily: "Roboto",
     h3: {
         fontSize: '1.2rem',
         '@media (min-width:800px)': {
@@ -27,4 +42,4 @@ export const theme = {
       dark: "#757575",
     },
   },
-};
+})
