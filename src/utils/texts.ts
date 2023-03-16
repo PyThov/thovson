@@ -74,4 +74,4 @@ export const HOME_CARDS: IHomeCards = {
   skills: Object.keys(SKILLS),
 };
 
-export const FOOTER = `Made with Vite + React + Typescript + Joy :)`;
+export const FOOTER = `Made with Vite + React + Typescript :)`;

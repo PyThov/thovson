@@ -44,17 +44,6 @@
   background-color: inherit;
 }
 
-.footer {
-  display: flex;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100vw;
-  height: 50px;
-  justify-content: center;
-  align-items: center;
-}
-
 .accordian {
   min-width: 70vw;
 }
