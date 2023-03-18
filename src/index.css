@@ -16,6 +16,12 @@
 }
 
 .skillsIcon {
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+}
+
+.skillsIcon:hover {
   width: 50px;
   height: 50px;
   font-size: 50px;
@@ -23,7 +29,7 @@
 
 .iconBackground {
   border-radius: 4px;
-  background-color: rgba(128, 128, 128, 0.459);
+  background-color: rgba(128, 128, 128, 0.5);
 }
 
 .iconBackground:hover {

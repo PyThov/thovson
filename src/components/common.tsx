@@ -1,8 +1,7 @@
 // This file is to store commonly used components
 import React from "react";
-import { Box, Paper, Slide, Typography, Zoom } from "@mui/material";
+import { Box, Paper, Slide, Typography } from "@mui/material";
 import { STYLE } from "../utils/constants";
-import Button from "@mui/material/Button";
 
 interface IIconLabel {
   title: string;
@@ -10,12 +9,21 @@ interface IIconLabel {
 }
 export const IconLabel = ({ title, children }: IIconLabel) => {
   return (
-    <>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        width: "50px",
+        height: "50px",
+        fontSize: "50px",
+      }}
+    >
       <div className="skillsIcon">
         {/* TODO: Make icons grow and animate when hovered? */}
-        {/* <Zoom in={true} style={{transitionDelay: '500ms'}}> */}
         {children}
-        {/* </Zoom> */}
       </div>
       {/* TODO: Add rounded box around title? */}
       <Typography
@@ -26,7 +34,7 @@ export const IconLabel = ({ title, children }: IIconLabel) => {
       >
         {title}
       </Typography>
-    </>
+    </div>
   );
 };
 
@@ -55,54 +63,65 @@ export const SlidePanel = ({
   children,
 }: ISlidePanel) => {
   // State to track if the panel should be shown or hidden
-  const [show, setShow] = React.useState(true);
+  const [show, setShow] = React.useState(false);
 
   // Reference to the container div to be used in the mouse over and out events
   const containerRef = React.useRef(null);
+
+  const cover = (
+    <Paper
+      elevation={4}
+      sx={{
+        height: "100%",
+        borderRadius: 0,
+        backgroundColor: bgColor,
+        pointerEvents: "none",
+      }}
+    >
+      {/* The content of the cover panel */}
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          textAlign: "center",
+          justifyContent: "center",
+          alignItems: "center",
+          height: STYLE.mainVH,
+          pointerEvents: "none",
+        }}
+      >
+        {/* The title of the cover panel */}
+        <Typography variant="h3" color={textColor}>
+          {title}
+        </Typography>
+      </Box>
+    </Paper>
+  );
+
+  const hidden = (
+    <Box
+      height={STYLE.mainVH}
+      zIndex={2}
+      sx={{ backgroundColor: "neutral.light" }}
+    >
+      {/* The hidden component content */}
+      {children}
+    </Box>
+  );
 
   return (
     // The container div that holds the hidden component and the cover panel
     <Box
       position="relative"
       ref={containerRef}
-      onMouseOver={() => setShow(false)} // Show the cover panel on mouse over
-      onMouseOut={() => setShow(true)} // Hide the cover panel on mouse out
+      onMouseOver={() => setShow(true)} // Show the cover panel on mouse over
+      onMouseOut={() => setShow(false)} // Hide the cover panel on mouse out
     >
-      <Box height={STYLE.mainVH}>
-        {/* The hidden component content */}
-        {children}
-      </Box>
-      <Box
-        position="absolute"
-        top={0}
-        zIndex={1}
-        height={STYLE.mainVH}
-        width="100%"
-      >
+      {cover}
+      <Box position="absolute" top={0} height={STYLE.mainVH} width="100%">
         {/* The cover panel that slides in on mouse over */}
         <Slide direction="down" in={show} unmountOnExit mountOnEnter>
-          <Paper
-            elevation={4}
-            sx={{ height: "100%", borderRadius: 0, backgroundColor: bgColor, pointerEvents: "none" }}
-          >
-            {/* The content of the cover panel */}
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                textAlign: "center",
-                justifyContent: "center",
-                alignItems: "center",
-                height: STYLE.mainVH,
-                pointerEvents: "none"
-              }}
-            >
-              {/* The title of the cover panel */}
-              <Typography variant="h3" color={textColor}>
-                {title}
-              </Typography>
-            </Box>
-          </Paper>
+          {hidden}
         </Slide>
       </Box>
     </Box>

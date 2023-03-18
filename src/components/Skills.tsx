@@ -84,16 +84,17 @@ export default function Skills() {
     <Box color="neutral.contrastText" marginX="2vw" height="100%">
       {/* Top Label */}
       <Box>
-        <Typography variant="h2" textAlign="center">
+        <Typography variant="h2" textAlign="center" marginBottom=".25em">
           Skills
         </Typography>
       </Box>
       {/* Container of skill categories */}
-      <Grid container direction="column" spacing={1}>
+      <Grid container direction="column" spacing={8}>
         {Object.keys(skills).map((skillCategory) => {
           return (
             <Grid key={skillCategory} item xs={4}>
               <RoundBorder backgroundColor="primary.light">
+                {/* Category Label */}
                 <Typography variant="h3" textAlign="center" margin=".5em">
                   {skillCategory}
                 </Typography>
