@@ -1,7 +1,5 @@
 # Noah Thovson
 
---
-
 ## Purpose
 
 - Show: goals, past work experience, accomplishments, social media

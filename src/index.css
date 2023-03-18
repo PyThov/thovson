@@ -14,3 +14,26 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+.skillsIcon {
+  width: 50px;
+  height: 50px;
+  font-size: 50px;
+}
+
+.iconBackground {
+  border-radius: 4px;
+  background-color: rgba(128, 128, 128, 0.459);
+}
+
+.iconBackground:hover {
+  transform: rotate(10deg);
+}
+
+.skills-grid-item {
+  display: "flex";
+  flex-direction: "column";
+  justify-content: "center";
+  align-items: "center";
+  text-align: "center";
+}

@@ -2,14 +2,14 @@ import { createTheme } from "@mui/material";
 
 // Copied from: https://mui.com/material-ui/customization/palette/#adding-new-colors
 // Addition required for Typescript
-declare module '@mui/material/styles' {
+declare module "@mui/material/styles" {
   interface Palette {
-    neutral: Palette['primary'];
+    neutral: Palette["primary"];
   }
 
   // allow configuration using `createTheme`
   interface PaletteOptions {
-    neutral?: PaletteOptions['primary'];
+    neutral?: PaletteOptions["primary"];
   }
 }
 
@@ -17,10 +17,10 @@ export const theme = createTheme({
   typography: {
     fontFamily: "Roboto",
     h3: {
-        fontSize: '1.2rem',
-        '@media (min-width:800px)': {
-            fontSize: '2rem',
-          },
+      fontSize: "1.2rem",
+      "@media (min-width:800px)": {
+        fontSize: "2rem",
+      },
     },
   },
   palette: {
@@ -40,6 +40,7 @@ export const theme = createTheme({
       light: "#eeeeee",
       main: "#bdbdbd",
       dark: "#757575",
+      contrastText: "#111",
     },
   },
-})
+});
