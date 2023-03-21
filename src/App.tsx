@@ -9,9 +9,7 @@ import Thovson from "./routes/Thovson";
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Routes>
-        <Route path="/" element={<Thovson />} />
-      </Routes>
+      <Thovson />
       <Footer />
     </ThemeProvider>
   );

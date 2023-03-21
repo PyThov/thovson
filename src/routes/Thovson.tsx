@@ -1,41 +1,27 @@
 import React from "react";
 import { Grid } from "@mui/material";
-import { STYLE } from "../utils/constants";
 import Skills from "../components/Skills";
 import Experience from "../components/Experience";
 import Projects from "../components/Projects";
 import { SlidePanel } from "../components/common";
 
-import "./home.css";
-
 // TODO: Add slide out panel on the left side of page for portrait and short bio
 
 export default function Thovson() {
   return (
-    <Grid
-      container
-      sx={{
-        width: "100vw",
-        height: STYLE.mainVH,
-        // backgroundColor: "neutral.light",
-      }}
-    >
+    <Grid container>
       <Grid item xs={4}>
-        <SlidePanel bgColor="neutral.light" textColor="neutral" title="SKILLS">
+        <SlidePanel bgColor="neutral.light" title="SKILLS">
           <Skills />
         </SlidePanel>
       </Grid>
       <Grid item xs={4}>
-        <SlidePanel
-          bgColor="neutral.main"
-          textColor="neutral"
-          title="EXPERIENCE"
-        >
+        <SlidePanel bgColor="neutral.main" title="EXPERIENCE">
           <Experience />
         </SlidePanel>
       </Grid>
       <Grid item xs={4}>
-        <SlidePanel bgColor="neutral.dark" textColor="neutral" title="PROJECTS">
+        <SlidePanel bgColor="neutral.dark" title="PROJECTS">
           <Projects />
         </SlidePanel>
       </Grid>

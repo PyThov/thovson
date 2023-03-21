@@ -18,29 +18,40 @@ export const theme = createTheme({
     fontFamily: "Roboto",
     h3: {
       fontSize: "1.2rem",
+      // Scale font-size by container width
       "@media (min-width:800px)": {
         fontSize: "2rem",
+      },
+    },
+    subtitle2: {
+      fontSize: "10px",
+      "@media (min-width:800px)": {
+        // Scale font-size down for smaller screens
+        fontSize: "16px",
       },
     },
   },
   palette: {
     primary: {
-      light: "#35baf6",
+      light: "#6fc7ff",
       main: "#03a9f4",
-      dark: "#0276aa",
+      dark: "#0385c5",
       contrastText: "#000",
     },
     secondary: {
-      light: "#ffdf66",
-      main: "#ffd740",
-      dark: "#b2962c",
+      light: "#f8c44a",
+      main: "#f4b203",
+      dark: "#a87301",
       contrastText: "#000",
     },
     neutral: {
-      light: "#eeeeee",
-      main: "#bdbdbd",
-      dark: "#757575",
-      contrastText: "#111",
+      // light: "#eeeeee",
+      // main: "#bdbdbd",
+      // dark: "#757575",
+      // contrastText: "#111",
+      light: "#abb7c0",
+      main: "#738796",
+      dark: "#505f6b",
     },
   },
 });

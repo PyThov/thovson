@@ -16,8 +16,9 @@ export default function Footer() {
         height: STYLE.footerVH,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "secondary.main",
+        backgroundColor: "secondary.light",
         gap: "10px",
+        zIndex: -1,
       }}
     >
       <Tooltip title="Thovson GitHub Repo" arrow>

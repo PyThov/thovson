@@ -1,7 +1,59 @@
 // This file is to store commonly used components
 import React from "react";
-import { Box, Paper, Slide, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  Paper,
+  Slide,
+  Typography,
+} from "@mui/material";
 import { STYLE } from "../utils/constants";
+
+interface ICardItem {
+  children: JSX.Element;
+}
+export const CardItem = ({ children }: ICardItem) => {
+  return (
+    <Card>
+      <CardContent>{children}</CardContent>
+    </Card>
+  );
+};
+
+interface ICenteredPaperCover {
+  bgColor: string;
+  children: JSX.Element;
+}
+export const CenteredPaperCover = ({
+  bgColor,
+  children,
+}: ICenteredPaperCover) => {
+  return (
+    <Paper
+      elevation={4}
+      sx={{
+        borderRadius: 0,
+        backgroundColor: bgColor,
+        pointerEvents: "none",
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          textAlign: "center",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: STYLE.mainVH,
+          pointerEvents: "none",
+        }}
+      >
+        {children}
+      </Box>
+    </Paper>
+  );
+};
 
 interface IIconLabel {
   title: string;
@@ -19,13 +71,10 @@ export const IconLabel = ({ title, children }: IIconLabel) => {
         width: "50px",
         height: "50px",
         fontSize: "50px",
+        transitionDelay: "5s",
       }}
     >
-      <div className="skillsIcon">
-        {/* TODO: Make icons grow and animate when hovered? */}
-        {children}
-      </div>
-      {/* TODO: Add rounded box around title? */}
+      <div className="skillsIcon">{children}</div>
       <Typography
         variant="subtitle2"
         textAlign="center"
@@ -44,24 +93,22 @@ interface IRoundBorder {
 }
 export const RoundBorder = ({ backgroundColor, children }: IRoundBorder) => {
   return (
-    <Box borderRadius="4px" sx={{ backgroundColor: backgroundColor }}>
+    <Paper
+      elevation={2}
+      sx={{ backgroundColor: backgroundColor, borderRadius: "4px" }}
+    >
       {children}
-    </Box>
+    </Paper>
   );
 };
 
+// TODO: Click covered panel to lock open until clicked again? (toggle)
 interface ISlidePanel {
   bgColor: string;
-  textColor: string;
   title: string;
   children: React.ReactElement;
 }
-export const SlidePanel = ({
-  bgColor,
-  textColor,
-  title,
-  children,
-}: ISlidePanel) => {
+export const SlidePanel = ({ bgColor, title, children }: ISlidePanel) => {
   // State to track if the panel should be shown or hidden
   const [show, setShow] = React.useState(false);
 
@@ -69,41 +116,13 @@ export const SlidePanel = ({
   const containerRef = React.useRef(null);
 
   const cover = (
-    <Paper
-      elevation={4}
-      sx={{
-        height: "100%",
-        borderRadius: 0,
-        backgroundColor: bgColor,
-        pointerEvents: "none",
-      }}
-    >
-      {/* The content of the cover panel */}
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          textAlign: "center",
-          justifyContent: "center",
-          alignItems: "center",
-          height: STYLE.mainVH,
-          pointerEvents: "none",
-        }}
-      >
-        {/* The title of the cover panel */}
-        <Typography variant="h3" color={textColor}>
-          {title}
-        </Typography>
-      </Box>
-    </Paper>
+    <CenteredPaperCover bgColor={bgColor}>
+      <TitleLabel title={title} />
+    </CenteredPaperCover>
   );
 
   const hidden = (
-    <Box
-      height={STYLE.mainVH}
-      zIndex={2}
-      sx={{ backgroundColor: "neutral.light" }}
-    >
+    <Box minHeight={STYLE.mainVH} zIndex={2} sx={{ backgroundColor: "#fff" }}>
       {/* The hidden component content */}
       {children}
     </Box>
@@ -118,12 +137,23 @@ export const SlidePanel = ({
       onMouseOut={() => setShow(false)} // Hide the cover panel on mouse out
     >
       {cover}
-      <Box position="absolute" top={0} height={STYLE.mainVH} width="100%">
+      <Box position="absolute" top={0} width="100%">
         {/* The cover panel that slides in on mouse over */}
         <Slide direction="down" in={show} unmountOnExit mountOnEnter>
           {hidden}
         </Slide>
       </Box>
     </Box>
+  );
+};
+
+interface ITitleLabel {
+  title: string;
+}
+export const TitleLabel = ({ title }: ITitleLabel) => {
+  return (
+    <Typography variant="h3" color={"primary.contrastText"}>
+      {title}
+    </Typography>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/Github";
 import { IconLabel, RoundBorder } from "./common";
 import {
@@ -34,6 +34,8 @@ const centerFlex = {
   alignItems: "center",
   textAlign: "center",
 };
+
+// TODO: Add a tooltip with years of experience?
 
 // This interface defines a skill object that maps a string key to a JSX element.
 interface ISkillDetails {
@@ -80,37 +82,64 @@ const skills: ISkills = {
 
 // Skills is a React functional component that renders the above skills in a grid layout.
 export default function Skills() {
+  const smallWindow = window.outerWidth < 1200;
+
   return (
-    <Box color="neutral.contrastText" marginX="2vw" height="100%">
+    <Box marginX="6%">
       {/* Top Label */}
-      <Box>
-        <Typography variant="h2" textAlign="center" marginBottom=".25em">
-          Skills
-        </Typography>
-      </Box>
+      <Typography variant="h2" textAlign="center" paddingY=".5em">
+        Skills
+      </Typography>
       {/* Container of skill categories */}
-      <Grid container direction="column" spacing={8}>
+      <Grid container direction="column" spacing={6}>
         {Object.keys(skills).map((skillCategory) => {
           return (
             <Grid key={skillCategory} item xs={4}>
-              <RoundBorder backgroundColor="primary.light">
-                {/* Category Label */}
-                <Typography variant="h3" textAlign="center" margin=".5em">
-                  {skillCategory}
-                </Typography>
-              </RoundBorder>
-              {/* Container of skills for a given category */}
-              <Grid container justifyContent="center" spacing={3}>
-                {Object.keys(skills[skillCategory]).map((key) => {
-                  return (
-                    <Grid key={key} item xs={4} sx={{ ...centerFlex }}>
-                      <IconLabel title={key}>
-                        {skills[skillCategory][key]}
-                      </IconLabel>
-                    </Grid>
-                  );
-                })}
-              </Grid>
+              <Card
+                sx={{
+                  backgroundColor: "#eee",
+                  transition: "all 0.1s ease-in-out",
+                  ":hover": {
+                    backgroundColor: "#ddd",
+                  },
+                }}
+              >
+                <CardContent>
+                  <RoundBorder backgroundColor="primary.light">
+                    {/* Category Label */}
+                    <Typography
+                      variant="h3"
+                      textAlign="center"
+                      marginBottom="1em"
+                    >
+                      {skillCategory}
+                    </Typography>
+                  </RoundBorder>
+                  {/* Container of skills for a given category */}
+                  <Grid
+                    container
+                    justifyContent="center"
+                    spacing={3}
+                    rowGap="1em"
+                  >
+                    {Object.keys(skills[skillCategory]).map((key) => {
+                      return (
+                        <Grid
+                          key={key}
+                          item
+                          xs={4}
+                          md={3}
+                          sx={{ ...centerFlex, transitionDelay: "5s" }}
+                        >
+                          <IconLabel title={key}>
+                            {skills[skillCategory][key]}
+                          </IconLabel>
+                        </Grid>
+                      );
+                    })}
+                  </Grid>
+                </CardContent>
+              </Card>
             </Grid>
           );
         })}
