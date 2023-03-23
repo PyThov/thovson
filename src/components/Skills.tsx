@@ -82,8 +82,6 @@ const skills: ISkills = {
 
 // Skills is a React functional component that renders the above skills in a grid layout.
 export default function Skills() {
-  const smallWindow = window.outerWidth < 1200;
-
   return (
     <Box marginX="6%">
       {/* Top Label */}
@@ -97,11 +95,7 @@ export default function Skills() {
             <Grid key={skillCategory} item xs={4}>
               <Card
                 sx={{
-                  backgroundColor: "#eee",
-                  transition: "all 0.1s ease-in-out",
-                  ":hover": {
-                    backgroundColor: "#ddd",
-                  },
+                  backgroundColor: "#f2f2f2"
                 }}
               >
                 <CardContent>

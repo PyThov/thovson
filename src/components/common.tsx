@@ -10,17 +10,6 @@ import {
 } from "@mui/material";
 import { STYLE } from "../utils/constants";
 
-interface ICardItem {
-  children: JSX.Element;
-}
-export const CardItem = ({ children }: ICardItem) => {
-  return (
-    <Card>
-      <CardContent>{children}</CardContent>
-    </Card>
-  );
-};
-
 interface ICenteredPaperCover {
   bgColor: string;
   children: JSX.Element;
@@ -122,7 +111,7 @@ export const SlidePanel = ({ bgColor, title, children }: ISlidePanel) => {
   );
 
   const hidden = (
-    <Box minHeight={STYLE.mainVH} zIndex={2} sx={{ backgroundColor: "#fff" }}>
+    <Box minHeight={STYLE.mainVH} maxHeight={STYLE.mainVH} maxWidth="100%" zIndex={2} sx={{ backgroundColor: "#fff", overflowX: "clip", overflowY: "auto" }} >
       {/* The hidden component content */}
       {children}
     </Box>
@@ -135,11 +124,13 @@ export const SlidePanel = ({ bgColor, title, children }: ISlidePanel) => {
       ref={containerRef}
       onMouseOver={() => setShow(true)} // Show the cover panel on mouse over
       onMouseOut={() => setShow(false)} // Hide the cover panel on mouse out
+      maxHeight={STYLE.mainVH}
     >
+      {/* The panel that displays before mouse hover  */}
       {cover}
-      <Box position="absolute" top={0} width="100%">
-        {/* The cover panel that slides in on mouse over */}
+      <Box position="absolute" top={0} width="100%" >
         <Slide direction="down" in={show} unmountOnExit mountOnEnter>
+          {/* The panel that slides in on mouse over */}
           {hidden}
         </Slide>
       </Box>
