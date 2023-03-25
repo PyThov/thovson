@@ -21,7 +21,7 @@ export default function Footer() {
         zIndex: -1,
       }}
     >
-      <Tooltip title="Thovson GitHub Repo" arrow>
+      <Tooltip title="Thovson GitHub Repo">
         <IconButton
           aria-label="github"
           href={GITHUB_REPO_HREF}

@@ -6,6 +6,7 @@ import {
   CardContent,
   Paper,
   Slide,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import { STYLE } from "../utils/constants";
@@ -44,6 +45,33 @@ export const CenteredPaperCover = ({
   );
 };
 
+interface IIconHover {
+  size: string;
+  title: string;
+  children: JSX.Element;
+}
+export const IconHover = ({ size, title, children }: IIconHover) => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        width: size,
+        height: size,
+        fontSize: size,
+        transitionDelay: "5s",
+      }}
+    >
+      <Tooltip title={title}>
+        <div className="skillsIcon">{children}</div>
+      </Tooltip>
+    </div>
+  );
+};
+
 interface IIconLabel {
   title: string;
   children: JSX.Element;
@@ -57,15 +85,15 @@ export const IconLabel = ({ title, children }: IIconLabel) => {
         justifyContent: "center",
         alignItems: "center",
         textAlign: "center",
-        width: "50px",
-        height: "50px",
-        fontSize: "50px",
+        width: "2.5rem",
+        height: "2.5rem",
+        fontSize: "2.5rem",
         transitionDelay: "5s",
       }}
     >
       <div className="skillsIcon">{children}</div>
       <Typography
-        variant="subtitle2"
+        variant="subtitle1"
         textAlign="center"
         overflow="ellipsis"
         whiteSpace="nowrap"
@@ -111,7 +139,13 @@ export const SlidePanel = ({ bgColor, title, children }: ISlidePanel) => {
   );
 
   const hidden = (
-    <Box minHeight={STYLE.mainVH} maxHeight={STYLE.mainVH} maxWidth="100%" zIndex={2} sx={{ backgroundColor: "#fff", overflowX: "clip", overflowY: "auto" }} >
+    <Box
+      minHeight={STYLE.mainVH}
+      maxHeight={STYLE.mainVH}
+      maxWidth="100%"
+      zIndex={2}
+      sx={{ backgroundColor: "#fff", overflow: "auto" }}
+    >
       {/* The hidden component content */}
       {children}
     </Box>
@@ -128,7 +162,7 @@ export const SlidePanel = ({ bgColor, title, children }: ISlidePanel) => {
     >
       {/* The panel that displays before mouse hover  */}
       {cover}
-      <Box position="absolute" top={0} width="100%" >
+      <Box position="absolute" top={0} width="100%">
         <Slide direction="down" in={show} unmountOnExit mountOnEnter>
           {/* The panel that slides in on mouse over */}
           {hidden}

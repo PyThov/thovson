@@ -16,6 +16,12 @@ declare module "@mui/material/styles" {
 export const theme = createTheme({
   typography: {
     fontFamily: "Roboto",
+    h2: {
+      // Scale font-size down for smaller screens
+      "@media (max-width:900px)": {
+        fontSize: "1.6rem",
+      },
+    },
     h3: {
       fontSize: "1.2rem",
       // Scale font-size by container width
@@ -24,10 +30,20 @@ export const theme = createTheme({
       },
     },
     subtitle2: {
-      fontSize: "10px",
-      "@media (min-width:800px)": {
+      "@media (max-width:800px)": {
         // Scale font-size down for smaller screens
-        fontSize: "16px",
+        fontSize: "12px",
+      },
+    },
+    subtitle1: {
+      "@media (max-width:800px)": {
+        // Scale font-size down for smaller screens
+        fontSize: "12px",
+      },
+      "@media (max-width:400px)": {
+        // Scale font-size down for smaller screens
+        fontSize: "8px",
+        fontWeight: "900",
       },
     },
   },
