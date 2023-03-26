@@ -56,8 +56,8 @@ const experiences: IExperience[] = [
 
 export default function Experience() {
   return (
-    <Box marginX="6%">
-      <Typography variant="h2" textAlign="center" paddingY=".5em">
+    <Box margin="0 5% 5% 5%">
+      <Typography gutterBottom variant="h2" textAlign="center" paddingY=".2em">
         Experience
       </Typography>
       <Grid container direction="column" spacing={4}>

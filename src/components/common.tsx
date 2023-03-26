@@ -51,7 +51,6 @@ export const IconHover = ({ size, title, children }: IIconHover) => {
         justifyContent: "center",
         alignItems: "center",
         textAlign: "center",
-        width: size,
         height: size,
         fontSize: size,
       }}
@@ -76,7 +75,6 @@ export const IconLabel = ({ title, children }: IIconLabel) => {
         justifyContent: "center",
         alignItems: "center",
         textAlign: "center",
-        width: "2.5rem",
         height: "2.5rem",
         fontSize: "2.5rem",
       }}
@@ -148,13 +146,18 @@ export const SlidePanel = ({ bgColor, title, children }: ISlidePanel) => {
   };
 
   const handleClick = () => {
-    setLocked(!locked);
+    // Don't allow locking of sliders on mobile, as this leads to confusing use cases
+    if (window.isMobile) {
+      setShow(!show);
+    } else {
+      setLocked(!locked);
 
-    // Reset background color after delay
-    setActive(true);
-    setTimeout(() => {
-      setActive(false);
-    }, 400);
+      // Reset background color after delay
+      setActive(true);
+      setTimeout(() => {
+        setActive(false);
+      }, 400);
+    }
   };
 
   const cover = (
@@ -169,7 +172,6 @@ export const SlidePanel = ({ bgColor, title, children }: ISlidePanel) => {
       minHeight={STYLE.mainVH}
       maxHeight={STYLE.mainVH}
       maxWidth="100%"
-      zIndex={2}
       onClick={handleClick}
       sx={{
         overflow: "auto",
@@ -179,7 +181,6 @@ export const SlidePanel = ({ bgColor, title, children }: ISlidePanel) => {
       {/* Hidden component content */}
       <Box
         minHeight={STYLE.mainVH}
-        height="100%"
         sx={{
           cursor: "pointer",
           transition: "background-color .8s ease",

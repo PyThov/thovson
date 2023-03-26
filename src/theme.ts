@@ -36,14 +36,9 @@ const theme = createTheme({
       },
     },
     subtitle1: {
-      "@media (max-width:800px)": {
+      "@media (max-width:300px)": {
         // Scale font-size down for smaller screens
         fontSize: "12px",
-      },
-      "@media (max-width:400px)": {
-        // Scale font-size down for smaller screens
-        fontSize: "8px",
-        fontWeight: "900",
       },
     },
   },

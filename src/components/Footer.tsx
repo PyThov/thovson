@@ -10,16 +10,13 @@ export default function Footer() {
     <Box
       sx={{
         display: "flex",
-        position: "fixed",
         left: 0,
         bottom: 0,
-        width: "100vw",
         height: STYLE.footerVH,
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "secondary.light",
         gap: "10px",
-        zIndex: -1,
       }}
     >
       <Tooltip title="Thovson GitHub Repo">

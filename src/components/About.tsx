@@ -24,8 +24,8 @@ const ABOUT =
 
 export default function About() {
   return (
-    <Box>
-      <Typography variant="h2" textAlign="center" paddingY=".5em">
+    <Box margin="0 5% 5% 5%">
+      <Typography gutterBottom variant="h2" textAlign="center" paddingY=".2em">
         About
       </Typography>
       <Grid
@@ -36,7 +36,7 @@ export default function About() {
       >
         {/* Picture */}
         <Grid item xs={6}>
-          <Card sx={{ backgroundColor: "primary.light", marginX: "8vw" }}>
+          <Card sx={{ backgroundColor: "primary.light", marginX: "2vw" }}>
             <Paper elevation={6}>
               <CardMedia
                 component="img"
@@ -44,7 +44,9 @@ export default function About() {
                 title="Noah Thovson Portrait"
               />
             </Paper>
-            <Typography variant="h3">Noah Thovson</Typography>
+            <Typography variant="h3" margin="1vh">
+              Noah Thovson
+            </Typography>
           </Card>
           {/* Icons */}
           <Box margin="4px">
@@ -86,7 +88,8 @@ export default function About() {
             </Tooltip>
           </Box>
         </Grid>
-        <Grid item xs={6} marginX="1vw">
+        {/* About Content */}
+        <Grid item xs={6}>
           <Card sx={{ backgroundColor: "#eee" }}>
             <CardContent>
               <Paper sx={{ padding: "10px" }}>

@@ -42,9 +42,10 @@ const skills: ISkills = {
 // Skills is a React functional component that renders the above skills in a grid layout.
 export default function Skills() {
   return (
-    <Box marginX="6%">
+    // TODO: Move this to a common property in the slider container?
+    <Box margin="0 5% 5% 5%">
       {/* Top Label */}
-      <Typography variant="h2" textAlign="center" paddingY=".5em">
+      <Typography gutterBottom variant="h2" textAlign="center" paddingY=".2em">
         Skills
       </Typography>
       {/* Container of skill categories */}
