@@ -54,8 +54,6 @@ const experiences: IExperience[] = [
   },
 ];
 
-// TODO: Trim down descriptions and put in icons for what I learned in each experience
-
 export default function Experience() {
   return (
     <Box marginX="6%">
@@ -87,14 +85,7 @@ export default function Experience() {
                         {experience.description}
                       </Typography>
                       {/* Skill icons for each experience */}
-                      <Grid
-                        container
-                        justifyContent="center"
-                        // spacing={2}
-                        // columnSpacing={4}
-                        // columnGap={"8px"}
-                        // rowGap={"8px"}
-                      >
+                      <Grid container justifyContent="center">
                         {experience.skills.map((skill, i) => {
                           return (
                             <Grid

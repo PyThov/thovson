@@ -84,7 +84,7 @@ export default function Skills() {
                             item
                             xs={6}
                             md={3}
-                            sx={{ ...centerFlex, transitionDelay: "5s" }}
+                            sx={{ ...centerFlex }}
                           >
                             <IconLabel title={skill}>
                               {SkillToIconMap[skill]}

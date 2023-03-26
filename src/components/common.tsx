@@ -1,14 +1,6 @@
 // This file is to store commonly used components
 import React from "react";
-import {
-  Box,
-  Card,
-  CardContent,
-  Paper,
-  Slide,
-  Tooltip,
-  Typography,
-} from "@mui/material";
+import { Box, Paper, Slide, Tooltip, Typography } from "@mui/material";
 import { STYLE } from "../utils/constants";
 
 interface ICenteredPaperCover {
@@ -62,7 +54,6 @@ export const IconHover = ({ size, title, children }: IIconHover) => {
         width: size,
         height: size,
         fontSize: size,
-        transitionDelay: "5s",
       }}
     >
       <Tooltip title={title}>
@@ -88,7 +79,6 @@ export const IconLabel = ({ title, children }: IIconLabel) => {
         width: "2.5rem",
         height: "2.5rem",
         fontSize: "2.5rem",
-        transitionDelay: "5s",
       }}
     >
       <div className="skillsIcon">{children}</div>
@@ -128,9 +118,44 @@ interface ISlidePanel {
 export const SlidePanel = ({ bgColor, title, children }: ISlidePanel) => {
   // State to track if the panel should be shown or hidden
   const [show, setShow] = React.useState(false);
+  const [locked, setLocked] = React.useState(false);
+  const [active, setActive] = React.useState(false);
 
   // Reference to the container div to be used in the mouse over and out events
   const containerRef = React.useRef(null);
+
+  // Get the background color based on active/locked state
+  const getBackgroundColor = () => {
+    if (locked && active) {
+      return "primary.main";
+    } else if (!locked && active) {
+      return "secondary.main";
+    } else {
+      return "inherit";
+    }
+  };
+
+  const handleHover = () => {
+    if (!locked) {
+      setShow(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!locked) {
+      setShow(false);
+    }
+  };
+
+  const handleClick = () => {
+    setLocked(!locked);
+
+    // Reset background color after delay
+    setActive(true);
+    setTimeout(() => {
+      setActive(false);
+    }, 400);
+  };
 
   const cover = (
     <CenteredPaperCover bgColor={bgColor}>
@@ -139,15 +164,30 @@ export const SlidePanel = ({ bgColor, title, children }: ISlidePanel) => {
   );
 
   const hidden = (
+    // Hidden component container
     <Box
       minHeight={STYLE.mainVH}
       maxHeight={STYLE.mainVH}
       maxWidth="100%"
       zIndex={2}
-      sx={{ backgroundColor: "#fff", overflow: "auto" }}
+      onClick={handleClick}
+      sx={{
+        overflow: "auto",
+        backgroundColor: "#fff",
+      }}
     >
-      {/* The hidden component content */}
-      {children}
+      {/* Hidden component content */}
+      <Box
+        minHeight={STYLE.mainVH}
+        height="100%"
+        sx={{
+          cursor: "pointer",
+          transition: "background-color .8s ease",
+          backgroundColor: getBackgroundColor(),
+        }}
+      >
+        {children}
+      </Box>
     </Box>
   );
 
@@ -156,14 +196,20 @@ export const SlidePanel = ({ bgColor, title, children }: ISlidePanel) => {
     <Box
       position="relative"
       ref={containerRef}
-      onMouseOver={() => setShow(true)} // Show the cover panel on mouse over
-      onMouseOut={() => setShow(false)} // Hide the cover panel on mouse out
+      onMouseOver={handleHover} // Show the cover panel on mouse over
+      onMouseOut={handleMouseLeave} // Hide the cover panel on mouse out
       maxHeight={STYLE.mainVH}
     >
       {/* The panel that displays before mouse hover  */}
       {cover}
       <Box position="absolute" top={0} width="100%">
-        <Slide direction="down" in={show} unmountOnExit mountOnEnter>
+        <Slide
+          direction="down"
+          in={show}
+          unmountOnExit
+          mountOnEnter
+          timeout={400}
+        >
           {/* The panel that slides in on mouse over */}
           {hidden}
         </Slide>

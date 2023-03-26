@@ -1,8 +1,9 @@
 import React from "react";
 import { Box, IconButton, Tooltip, Typography } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/Github";
-import { FOOTER } from "../utils/texts";
 import { GITHUB_REPO_HREF, STYLE } from "../utils/constants";
+
+const FOOTER = `Made with Vite + React + Typescript :)`;
 
 export default function Footer() {
   return (

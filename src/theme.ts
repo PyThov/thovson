@@ -13,7 +13,7 @@ declare module "@mui/material/styles" {
   }
 }
 
-export const theme = createTheme({
+const theme = createTheme({
   typography: {
     fontFamily: "Roboto",
     h2: {
@@ -71,3 +71,5 @@ export const theme = createTheme({
     },
   },
 });
+
+export default theme;

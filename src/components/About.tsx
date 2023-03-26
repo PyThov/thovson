@@ -21,8 +21,6 @@ const ABOUT =
   "I feel fortunate to have had the opportunity to work on several projects during my career thus far. " +
   "Each project has allowed me to hone my skills and develop new ones, and I am excited to continue learning and growing as a software engineer and " +
   "am optimistic about the countless learning and development opportunities that lie ahead.";
-1;
-// TODO: Cleanup
 
 export default function About() {
   return (
@@ -35,10 +33,9 @@ export default function About() {
         justifyContent="center"
         textAlign="center"
         direction="column"
-        spacing={4}
       >
+        {/* Picture */}
         <Grid item xs={6}>
-          {/* <img src="/noah_t.png" width="100%" alt="Noah Thovson Portrait" /> */}
           <Card sx={{ backgroundColor: "primary.light", marginX: "8vw" }}>
             <Paper elevation={6}>
               <CardMedia
@@ -48,6 +45,10 @@ export default function About() {
               />
             </Paper>
             <Typography variant="h3">Noah Thovson</Typography>
+          </Card>
+          {/* Icons */}
+          <Box margin="4px">
+            {/* Github Icon */}
             <Tooltip title="GitHub Projects">
               <IconButton
                 aria-label="github"
@@ -57,14 +58,15 @@ export default function About() {
                   borderRadius: "4px",
                   color: "secondary.contrastText",
                   ":hover": {
-                    backgroundColor: "#eee",
-                    // color: "#fff",
+                    backgroundColor: "primary.dark",
+                    color: "#fff",
                   },
                 }}
               >
                 <GitHubIcon />
               </IconButton>
             </Tooltip>
+            {/* Linked In Icon- */}
             <Tooltip title="Linked In">
               <IconButton
                 aria-label="linked-in"
@@ -74,21 +76,21 @@ export default function About() {
                   borderRadius: "4px",
                   color: "secondary.contrastText",
                   ":hover": {
-                    backgroundColor: "#eee",
-                    // color: "#fff",
+                    backgroundColor: "primary.dark",
+                    color: "#fff",
                   },
                 }}
               >
                 <LinkedIn />
               </IconButton>
             </Tooltip>
-          </Card>
+          </Box>
         </Grid>
         <Grid item xs={6} marginX="1vw">
           <Card sx={{ backgroundColor: "#eee" }}>
             <CardContent>
               <Paper sx={{ padding: "10px" }}>
-                <Typography variant="subtitle1">{ABOUT}</Typography>
+                <Typography variant="body1">{ABOUT}</Typography>
               </Paper>
             </CardContent>
           </Card>

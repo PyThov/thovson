@@ -5,8 +5,6 @@ import Experience from "../components/Experience";
 import About from "../components/About";
 import { SlidePanel } from "../components/common";
 
-// TODO: Add slide out panel on the left side of page for portrait and short bio
-
 export default function Thovson() {
   return (
     <Grid container>
