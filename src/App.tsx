@@ -6,6 +6,7 @@ import theme from "./theme";
 import Thovson from "./routes/Thovson";
 
 declare global {
+  // eslint-disable-next-line no-var
   var isMobile: boolean;
 }
 
