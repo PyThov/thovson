@@ -40,7 +40,7 @@ export default function About() {
             <Paper elevation={6}>
               <CardMedia
                 component="img"
-                image="/noah_t.png"
+                image="/thovson/noah_t.png"
                 title="Noah Thovson Portrait"
               />
             </Paper>
