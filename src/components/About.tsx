@@ -15,7 +15,7 @@ import { LinkedIn } from "@mui/icons-material";
 import { GITHUB_HREF, LINKED_IN_HREF } from "../utils/constants";
 
 const ABOUT =
-  "With a few years of experience as a software engineer, I have discovered a true passion for the entire development process. " +
+  "With several years of experience as a software engineer, I have discovered a true passion for the entire development process. " +
   "From front-end to back-end, I am committed to expanding my knowledge and expertise in all areas of software development, with a current emphasis on front-end development. " +
   "As a lifelong learner, I am eager to share my knowledge with others and contribute to the growth of my team. " +
   "I feel fortunate to have had the opportunity to work on several projects during my career thus far. " +
