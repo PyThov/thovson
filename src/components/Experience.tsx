@@ -16,7 +16,7 @@ const experiences: IExperience[] = [
     // description:
     //   "As a full-stack engineer, I've been developing and delivering high-quality microservices, in a collaborative and agile Scrum environment, while working with other teams to ensure integration and usability. This includes the use of tools like ReactJS, StencilJS, Typescript, Python, and GoLang.",
     description:
-      "Specializing in and helping to lead frontend development of multiple microservices, as well as contributing to backend development. Accelerated learning and communication in a large organization.",
+      "Specializing in and leading frontend development of multiple microservices, as well as contributing to backend development. Accelerated learning and communication in a large organization.",
     skills: [
       "ReactJS",
       "StencilJS",
