@@ -8,6 +8,11 @@ on:
   push:
     branches: [ "main" ]
 
+permissions:
+  contents: write  # Required to push changes to the repository
+  pages: write     # Required to deploy to GitHub Pages
+  id-token: write  # Required for GitHub Pages deployment
+
 jobs:
   build:
 
